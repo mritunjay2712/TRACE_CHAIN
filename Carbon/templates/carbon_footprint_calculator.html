@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/"><img src="/static/logo.ico" alt="Logo" class="logo-image"></a>
+    <a href="/"><h1>TRACE CHAIN</h1></a>
+        
+    </header>
+    {% if result %}
+    <h2>Total Carbon Footprint in pounds: {{ result }}</h2>
+    {% endif %}
+    <form action="/carbon_footprint_calculator" method="post">
+        <h2>Carbon Footprint Calculation</h2>
+
+        <label for="electric_bill">Yearly Electric Bill:</label><br>
+        <input type="number" id="electric_bill" name="electric_bill"><br><br>
+
+        <label for="gas_bill">Yearly Gas Bill:</label><br>
+        <input type="number" id="gas_bill" name="gas_bill"><br><br>
+
+        <label for="oil_bill">Yearly Oil Bill:</label><br>
+        <input type="number" id="oil_bill" name="oil_bill"><br><br>
+
+        <label for="car_mileage">Total Yearly Mileage on Your Car:</label><br>
+        <input type="number" id="car_mileage" name="car_mileage"><br><br>
+
+        <label for="short_flights">Number of Flights (4 hours or less) in the Past Year:</label><br>
+        <input type="number" id="short_flights" name="short_flights"><br><br>
+
+        <label for="long_flights">Number of Flights (4 hours or more) in the Past Year:</label><br>
+        <input type="number" id="long_flights" name="long_flights"><br><br>
+
+        <input type="submit" value="Calculate Carbon Footprint">
+    </form>
+    
+    <footer>
+        <p>&copy; TECH MAGES</p>
+    </footer>
+</body>
+</html>
